@@ -24,16 +24,6 @@ public class MergeSort {
         try (PrintWriter pw = new PrintWriter("sortednumb.txt")) {
             for (int n : arr) pw.print(n + " ");
         }
-
-        //binary search for 1 500 900 
-        int[] targets = {1, 500, 900};
-        for (int t : targets) {
-            int pos = Arrays.binarySearch(arr, t);
-            if (pos >= 0)
-                System.out.printf("Found %d at index %d%n", t, pos);
-            else
-                System.out.printf("%d not found%n", t);
-        }
     }
 
     //merge sort
@@ -63,3 +53,4 @@ public class MergeSort {
         while (j < n2) arr[k++] = R[j++];
     }
 }
+
