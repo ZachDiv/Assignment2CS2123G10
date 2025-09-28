@@ -1,5 +1,5 @@
 Zach: Unsorted List Creation [Done], Linear Search [Done]
 Gabriel: Bubble Sort []
 Matthew: Quick Sort []
-David: Binary Search []
+David: Binary Search [CODE UPLOADED, CANT TEST TILL OTHER MEMBERS DO THEIR PART]
 Lisan: PDF with tables and times [], Merge Sort []
