@@ -4,9 +4,9 @@ import java.util.*;
 public class LinearSearch {
 
     // My actual search program
-    public static int linearSearch(int[] arr, int target) {
+    public static int linearSearch(int[] arr, int numberToFind) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == target) {
+            if (arr[i] == numberToFind) {
                 return i;
             }
         }
@@ -15,7 +15,7 @@ public class LinearSearch {
 
     public static void main(String[] args) {
         List<Integer> numbers = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+        Scanner scnr = new Scanner(System.in);
         //Reading numbers from our Random numbers and adding them to a list
         try (BufferedReader br = new BufferedReader(new FileReader("RandNumb.txt"))) {
             String line = br.readLine();
@@ -33,10 +33,10 @@ public class LinearSearch {
         int[] arr = numbers.stream().mapToInt(i -> i).toArray();
 
         System.out.print("Enter the number to search for: ");
-        int target = scanner.nextInt();
+        int numberToFind = scnr.nextInt();
         //HAD to use System.nanoTime, the ThreadMX stuff would return 0 no matter what I did due to Javas underlying overhead rounding cycles to 0
         long startTime = System.nanoTime();
-        int index = linearSearch(arr, target);
+        int index = linearSearch(arr, numberToFind);
         long endTime = System.nanoTime();
 
         double elapsedTimeSeconds = (endTime - startTime) / 1000000000.0;
