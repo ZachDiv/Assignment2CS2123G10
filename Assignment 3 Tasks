@@ -4,7 +4,7 @@ Assignment 3 (Save zip file as A3_Sec004_group10.zip)
 		screenshots of output for both huffman encoding and heaptree
 		Huffman code complete table of bitcodes, frequencies, and bits
 		
-	Huffman Encoding
+	Huffman Encoding 
 		Huffman variable bit must use greedy approach
 		Code should generate the code coded table as output
 		
@@ -13,5 +13,8 @@ Assignment 3 (Save zip file as A3_Sec004_group10.zip)
 		In case of same number duplicate should move to left node unless occupied
 		Output heap Extracted max/min one element per line
 		
-Project 1
-	
+[Zach] Huffman Encoding
+[Gabriel] Max Heap
+[Lisan] Min Heap
+[Mathew] PDF
+[David] Take 7 integers from input
