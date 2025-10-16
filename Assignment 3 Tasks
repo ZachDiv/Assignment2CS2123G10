@@ -1,0 +1,17 @@
+Assignment 3 (Save zip file as A3_Sec004_group10.zip)
+	PDF (Save as Assign3_group10.pdf)
+		Group work distribution 
+		screenshots of output for both huffman encoding and heaptree
+		Huffman code complete table of bitcodes, frequencies, and bits
+		
+	Huffman Encoding
+		Huffman variable bit must use greedy approach
+		Code should generate the code coded table as output
+		
+	Heap Tree
+		Take 7 integers from user and let user choose between min heap or max heap
+		In case of same number duplicate should move to left node unless occupied
+		Output heap Extracted max/min one element per line
+		
+Project 1
+	
