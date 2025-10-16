@@ -1,0 +1,11 @@
+[]Presentation - David
+[]Group Meetings Template/Coordinator -Zach
+[]Project Documentation Template - Gabriel
+
+
+CODE:
+	[]printName function - each of us does individually
+	[]ResourceManagement Constructor - Lisan
+	[]printSummary - David
+	[]Department Constructor - Mathew
+	
