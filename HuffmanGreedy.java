@@ -37,9 +37,10 @@ public class HuffmanGreedy {
             return;
         }
 
-        //RECURSIVE CALLS left adds a 0 right adds a 1 to the huffman code
-        printCodes(node.left, code + "0");
-        printCodes(node.right, code + "1");
+        //RECURSIVE CALLS
+        printCodes(node.right, code + "0");
+        printCodes(node.left, code + "1");
+        
     }
     public static void main(String[] args) {
         //LEAF NODES
