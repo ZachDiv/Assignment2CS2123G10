@@ -36,6 +36,20 @@ public class HeapTree {
             }
 
         } 
+        // Min Heap selection
+        else if (choice == 2) {
+            System.out.println("Fig B (Min Heap)");
+
+            MinHeap heap = new MinHeap(); // create min heap
+
+            for (int num : numbers) {
+                heap.insert(num); // insert numbers
+            }
+
+            while (!heap.isEmpty()) {
+                System.out.println("Extracted Min: " + heap.extractMin()); // remove in ascending order
+            }
+        }
 
         input.close();
     }
@@ -120,4 +134,77 @@ class MaxHeap {
     }
 }
 
+//MinHeap class
+class MinHeap {
+    private ArrayList<Integer> heap;
 
+    public MinHeap() {
+        heap = new ArrayList<>();
+    }
+
+    // Insert a new value into heap
+    public void insert(int value) {
+        heap.add(value); 
+        moveUp(heap.size() - 1); 
+    }
+
+    public boolean isEmpty() {
+        return heap.isEmpty();
+    }
+
+    // Remove the smallest value
+    public int extractMin() {
+        if (heap.isEmpty()) {
+            System.out.println("Heap is empty!");
+            return -1;
+        }
+
+        int min = heap.get(0); 
+        int last = heap.remove(heap.size() - 1); 
+
+        if (!heap.isEmpty()) {
+            heap.set(0, last);
+            moveDown(0); 
+        }
+
+        return min;
+    }
+
+    // Move the new element up if it's smaller
+    private void moveUp(int index) {
+        int parent = (index - 1) / 2;
+
+        while (index > 0 && heap.get(index) < heap.get(parent)) {
+            int temp = heap.get(index);
+            heap.set(index, heap.get(parent));
+            heap.set(parent, temp);
+
+            index = parent;
+            parent = (index - 1) / 2;
+        }
+    }
+
+    // Move down after removing max element
+    private void moveDown(int index) {
+        int size = heap.size();
+        while (true) {
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+            int smallest = index;
+
+            if (left < size && heap.get(left) < heap.get(smallest))
+                smallest = left;
+            if (right < size && heap.get(right) < heap.get(smallest))
+                smallest = right;
+
+            if (smallest == index)
+                break;
+
+            int temp = heap.get(index);
+            heap.set(index, heap.get(smallest));
+            heap.set(smallest, temp);
+
+            index = smallest;
+        }
+    }
+}
