@@ -18,7 +18,7 @@ public class ResourceManagement
   {
     /* TODO : Fill in your name */
     System.out.println("This solution was completed by:");
-    System.out.println("<student name>");
+    System.out.println("Mathew Kuttner"); // Feel free to organize names however, I just uploaded first
     System.out.println("<student name #2 (if no partner write \"N/A\")>");
   }
 
@@ -69,33 +69,32 @@ class Department implements Comparable<Department>
   /* TODO
    * Constructor to build a Department from the information in the given fileName
    */
-  public Department( String fileName ){
+  public Department( String fileName ){ // This constructor strictly relies on properly formatted data
     /* Open the fileName, create items based on the contents, and add those items to itemsDesired */
+    itemsDesired = new LinkedList<>(); // Not sure why this was not provided in the given code    
     try{
       File file = new File(fileName);
       FileReader fr = new FileReader(file);
-      BufferedReader br = new BufferedReader(fr);
+      BufferedReader br = new BufferedReader(fr); // Might be too powerful, but it works
 
       String line;
-      String itemName;
-      Double itemPrice;
+      String itemName; // Temporary variable storing the name of each item to add
+      Double itemPrice; // Temporary variable storing the price of each item to add
+      Item newItem; // Temporary object variable to avoid repeated declaration and to be added to itemsDesired
 
-      name = line = br.readLine();
+      name = line = br.readLine(); // First line must always be the department name
       br.readLine(); // Read empty after department name
       while((line = br.readLine()) != null){
-        if(!line.isEmpty()){
+        if(!line.isEmpty()){ // Item must be formatted properly
           itemName = line;
           itemPrice = Double.parseDouble(line=br.readLine());
-          br.readLine(); // Read empty line
+          br.readLine(); // Discard empty line
 
-          Item newItem = new Item(itemName, itemPrice);
-          // newItem needs to be added to itemsDesired but returns NullPointerException - Mathew
-          //itemsDesired.add(newItem);
+          newItem = new Item(itemName, itemPrice);
+          itemsDesired.add(newItem); // Only didn't work before because itemsDesired was not defined
         }
       }
-
-    } catch (IOException e)
-    {
+    } catch (IOException e){
       System.out.println("Error reading file: " + e.getMessage());
     }
   }
