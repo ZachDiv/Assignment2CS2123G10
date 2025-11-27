@@ -25,9 +25,6 @@ public class Driver {
       "./TestCase2/Department-DeptG.txt"}
       };
 
-    // I am only using this line to test the Department constructor - Mathew
-    //Department dp = new Department(fileNames[0][2]);
-
     System.out.println(  ); 
     ResourceManagement.printName( );
     System.out.println(  );
