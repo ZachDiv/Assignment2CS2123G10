@@ -19,7 +19,10 @@ public class ResourceManagement
     /* TODO : Fill in your name */
     System.out.println("This solution was completed by:");
     System.out.println("Mathew Kuttner"); // Feel free to organize names however, I just uploaded first
-    System.out.println("<student name #2 (if no partner write \"N/A\")>");
+    System.out.println("Zachary Blaha"); //Added the rest - Zach
+    System.out.println("Gabriel Reyes");
+    System.out.println("Lisan Temprana");
+    System.out.println("David Dominguez");
   }
 
   /* Constructor for a ResourceManagement object
