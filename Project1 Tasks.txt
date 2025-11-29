@@ -4,7 +4,7 @@
 
 
 CODE:
-	[]printName function - each of us does individually
+	[DONE]printName function - each of us does individually
 	[]ResourceManagement Constructor - Lisan
 	[]printSummary - David
 	[]Department Constructor - Mathew
