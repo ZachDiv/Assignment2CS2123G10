@@ -31,24 +31,56 @@ public class ResourceManagement
    * for the given budget and department item lists.
    */
   public ResourceManagement( String fileNames[], Double budget )
-  {
+{
+    this.budget = budget;
+    this.remainingBudget = budget;
+
     /* Create a department for each file listed in fileNames */
-    
-    
+    departmentPQ = new PriorityQueue<>();
+    for(String f : fileNames){
+      Department d = new Department(f);
+      d.priority = 0.0;                     // priority starts at 0
+      d.itemsReceived = new LinkedList<>();
+      d.itemsRemoved = new LinkedList<>();
+      departmentPQ.add(d);
+    }
+
     /* Simulate the algorithm for picking the items to purchase */
-    /* Be sure to print the items out as you purchase them */
-    /* Here's the part of the code I used for printing prices as items */
-    //String price = String.format("$%.2f", /*Item's price*/ );
-    //System.out.printf("Department of %-30s- %-30s- %30s\n", /*Department's name*/, /*Item's name*/, price );
-    
+    while(!departmentPQ.isEmpty()){
+
+        Department dept = departmentPQ.poll();   // get department with lowest current priority
+
+        if(dept.itemsDesired.isEmpty())
+            continue;                            // nothing left to buy for this department
+
+        Item next = dept.itemsDesired.peek();    // check next desired item
+
+        if(next.price <= remainingBudget){
+            // Purchase it
+            dept.itemsDesired.poll();
+            dept.itemsReceived.add(next);
+            dept.priority += next.price;
+            remainingBudget -= next.price;
+
+            // Printing the purchase
+            String price = String.format("$%.2f", next.price);
+            System.out.printf("Department of %-30s- %-30s- %30s\n",
+                              dept.name, next.name, price);
+
+            // Reinsert into priority queue with updated priority
+            departmentPQ.add(dept);
+        }
+        else {
+            // Cannot afford then skip/remove it
+            dept.itemsDesired.poll();
+            dept.itemsRemoved.add(next);
+
+            // Still reinsert to allow remaining items to be checked
+            departmentPQ.add(dept);
+        }
+    }
     
   } 
-
-  /* printSummary
-   * TODO
-   * Print a summary of what each department received and did not receive.
-   * Be sure to also print remaining items in each itemsDesired Queue.
-   */      
   public void printSummary(  ){
     
     /* Here's the part of the code I used for printing prices */
