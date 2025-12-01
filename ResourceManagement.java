@@ -83,9 +83,59 @@ public class ResourceManagement
   } 
   public void printSummary(  ){
     
-    /* Here's the part of the code I used for printing prices */
-    //String price = String.format("$%.2f", /*Item's price*/ );
-    //System.out.printf("%-30s - %30s\n", /*Item's name*/, price );
+      System.out.println();
+
+      for (Department dept : departmentPQ) {
+
+          System.out.println(dept.name);
+
+          //dept name
+          System.out.println("Department of " + dept.name);
+
+          //total spent
+          String totalSpent = String.format("$%.2f", dept.priority);
+          System.out.println("Total Spent       = " + totalSpent);
+
+          // % of budget
+          double percent = (budget == 0 ? 0 : (dept.priority / budget) * 100.0);
+          System.out.printf("Percent of Budget = %.2f%%\n", percent);
+          System.out.println("-----------------------------");
+
+          //items received
+          System.out.println("ITEMS RECEIVED");
+          if (dept.itemsReceived.isEmpty()) {
+              System.out.println();
+          }
+          else {
+              for (Item item : dept.itemsReceived) {
+                  String price = String.format("$%.2f", item.price);
+                  System.out.printf("%-30s - %30s\n", item.name, price);
+              }
+              System.out.println();
+          }
+
+          //items not received
+          System.out.println("ITEMS NOT RECEIVED");
+          boolean printed = false;
+
+          for (Item item : dept.itemsRemoved) {
+              printed = true;
+              String price = String.format("$%.2f", item.price);
+              System.out.printf("%-30s - %30s\n", item.name, price);
+          }
+
+          for (Item item : dept.itemsDesired) {
+              printed = true;
+              String price = String.format("$%.2f", item.price);
+              System.out.printf("%-30s - %30s\n", item.name, price);
+          }
+
+          if (!printed) {
+              System.out.println();
+          }
+
+          System.out.println();
+      }  
   }   
 }
 
