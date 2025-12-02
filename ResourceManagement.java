@@ -11,14 +11,11 @@ public class ResourceManagement
     private Double remainingBudget;                 /* the budget left after purchases are made (should be 0 after the constructor runs) */
     private Double budget;                          /* the total budget allocated */
     private ArrayList<Department> departments;  //ZACH - fixing constructor test
-    /* TO BE COMPLETED BY YOU
-     * Fill in your name in the function below
-     */
+    
     public static void printName( )
     {
-        /* TODO : Fill in your name */
         System.out.println("This solution was completed by:");
-        System.out.println("Mathew Kuttner"); // Feel free to organize names however, I just uploaded first
+        System.out.println("Mathew Kuttner");
         System.out.println("Zachary Blaha"); //Added the rest - Zach
         System.out.println("Gabriel Reyes");
         System.out.println("Lisan Temprana");
@@ -26,7 +23,6 @@ public class ResourceManagement
     }
 
     /* Constructor for a ResourceManagement object
-     * TODO
      * Simulates the algorithm from the pdf to determine what items are purchased
      * for the given budget and department item lists.
      */
@@ -157,12 +153,12 @@ class Department implements Comparable<Department>
     Queue<Item> itemsReceived;  /* list of items this department received */
     Queue<Item> itemsRemoved;   /* list of items that were skipped because they exceeded the remaining budget */
 
-    /* TODO
+    /*
      * Constructor to build a Department from the information in the given fileName
      */
     public Department( String fileName ){ // This constructor strictly relies on properly formatted data
         /* Open the fileName, create items based on the contents, and add those items to itemsDesired */
-        itemsDesired = new LinkedList<>(); // Not sure why this was not provided in the given code
+        itemsDesired = new LinkedList<>(); 
         try{
             File file = new File(fileName);
             FileReader fr = new FileReader(file);
@@ -175,7 +171,7 @@ class Department implements Comparable<Department>
 
             name = line = br.readLine(); // First line must always be the department name
             br.readLine(); // Read empty after department name
-            while((line = br.readLine()) != null){
+            while((line = br.readLine()) != null){ // Read through lines
                 if(!line.isEmpty()){ // Item must be formatted properly
                     itemName = line;
                     itemPrice = Double.parseDouble(line=br.readLine());
