@@ -48,6 +48,9 @@ public class ResourceManagement
             departments.add(d); //ZACH - FIXING PRINT SUMMARY TEST
         }
 
+        System.out.println("ITEMS PURCHASED");
+        System.out.println("-----------------------------"); //david - dividing line 
+
         /* Simulate the algorithm for picking the items to purchase */
         while(!departmentPQ.isEmpty()){
 
